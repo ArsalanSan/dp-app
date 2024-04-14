@@ -21,6 +21,7 @@ node {
         sh "docker build -t arsalansan/dp-app:latest ."
     }
 
+
     stage("Set tag and push image"){
         sh "docker push  arsalansan/dp-app:latest"
         sh "docker tag arsalansan/dp-app:latest arsalansan/dp-app:${lTAG}"
