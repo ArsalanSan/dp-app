@@ -3,8 +3,8 @@ import groovy.transform.Field
 
 node {
     stage('Git clone image'){
-        //git branch: 'main', url: 'https://github.com/ArsalanSan/dp-app.git'
-        git branch: 'main', url: 'https://github.com/ArsalanSan/netology-dp.git'
+        git branch: 'main', url: 'https://github.com/ArsalanSan/dp-app.git'
+        //git branch: 'main', url: 'https://github.com/ArsalanSan/netology-dp.git'
     }
     
     withCredentials([string(credentialsId: 'DOCKER_HUB_TOKEN', variable: 'TOKEN')]){
@@ -18,7 +18,7 @@ node {
     }
     
     stage("Docker build"){
-        sh "cd application && docker build -t arsalansan/dp-app:latest ."
+        sh "docker build -t arsalansan/dp-app:latest ."
     }
 
     stage("Set tag and push image"){
